@@ -31,6 +31,8 @@ sum(is.null(dt))
 # na by columns 
 colSums(is.na(dt))
 
+-----------------------------------------------#let's clean it#---------------------------------------------------------
+
 # replace NA in Cost per unique click wiht 0
 
 #option 1
@@ -168,8 +170,6 @@ dt$AudienceType = sub("FBF", "Facebook followers", dt$AudienceType)
 
 
 
-
-
 # AdType
 dt$AdType <- str_extract(dt$AdSetName, "Vid|Car|Carousel|Dyn|Dynamic") 
 
@@ -186,7 +186,7 @@ write.csv(dt,"FacebookAdCleaned_v8.csv")
 
 
 
- #check for distinctive /uniue 
+ #check for distinctive 
 sqldf("select distinct (AdSetName) from dt")
 sqldf("select distinct (AdType) from dt")
 sqldf("select distinct (Audience) from dt")
